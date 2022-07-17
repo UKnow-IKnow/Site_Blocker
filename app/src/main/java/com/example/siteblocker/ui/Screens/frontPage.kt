@@ -21,7 +21,9 @@ import com.example.siteblocker.R
 import com.example.siteblocker.ui.theme.LightBlue
 
 @Composable
-fun EmptyContent() {
+fun EmptyContent(
+
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
