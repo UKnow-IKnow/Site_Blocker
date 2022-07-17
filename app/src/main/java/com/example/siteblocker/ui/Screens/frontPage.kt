@@ -2,10 +2,7 @@ package com.example.siteblocker.ui.Screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
@@ -19,10 +16,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.siteblocker.R
 import com.example.siteblocker.ui.theme.LightBlue
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun EmptyContent(
-
+    scope: CoroutineScope,
+    bottomSheetState: ModalBottomSheetState
 ) {
     Column(
         modifier = Modifier
@@ -39,7 +40,11 @@ fun EmptyContent(
         )
         FloatingActionButton(
             modifier = Modifier.padding(top = 230.dp).size(100.dp),
-            onClick = { /*TODO*/ },
+            onClick = {
+                scope.launch {
+                    bottomSheetState.show()
+                }
+            },
             backgroundColor = LightBlue,
             contentColor = Color.White
         ) {
@@ -59,8 +64,3 @@ fun EmptyContent(
     }
 }
 
-@Composable
-@Preview
-private fun EmptyContentPreview() {
-    EmptyContent()
-}

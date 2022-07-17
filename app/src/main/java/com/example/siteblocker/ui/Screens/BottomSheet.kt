@@ -2,6 +2,7 @@ package com.example.siteblocker.ui.Screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -15,32 +16,28 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun BottomSheet(){
+fun BottomSheet() {
 
-    val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
-        bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
-    )
+    val scope = rememberCoroutineScope()
+    val bottomSheetState= rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
 
-    val coroutineScope = rememberCoroutineScope()
-    BottomSheetScaffold(
-        scaffoldState = bottomSheetScaffoldState,
-        sheetContent =  {
-            Box(
-                Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-                    .background(Color.Green)
-            ) {
-                Column(
-                    Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(text = "dummy BottomSheet", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                }
+    ModalBottomSheetLayout(
+        sheetState = bottomSheetState,
+        sheetContent = {
+            Column(modifier = Modifier.padding(12.dp)) {
+                Text(text = "Text 1")
+                Text(text = "Text 2")
+                Text(text = "Text 3")
+                Text(text = "Text 4")
+                Text(text = "Text 5")
+                Text(text = "Text 6")
+                Text(text = "Text 7")
+                Text(text = "Text 8")
             }
-        }, sheetPeekHeight = 0.dp
+        },
+        sheetShape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp),
+        sheetElevation = 12.dp
     ) {
-        EmptyContent()
+        EmptyContent(scope,bottomSheetState)
     }
 }
