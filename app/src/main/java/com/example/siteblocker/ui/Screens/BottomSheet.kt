@@ -24,19 +24,10 @@ fun BottomSheet() {
     ModalBottomSheetLayout(
         sheetState = bottomSheetState,
         sheetContent = {
-            Column(modifier = Modifier.padding(12.dp)) {
-                Text(text = "Text 1")
-                Text(text = "Text 2")
-                Text(text = "Text 3")
-                Text(text = "Text 4")
-                Text(text = "Text 5")
-                Text(text = "Text 6")
-                Text(text = "Text 7")
-                Text(text = "Text 8")
-            }
+            BottomSheetContent()
         },
-        sheetShape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp),
-        sheetElevation = 12.dp
+        sheetShape = RoundedCornerShape(topStart = 5.dp, topEnd = 5.dp),
+        sheetElevation = 30.dp
     ) {
         EmptyContent(scope,bottomSheetState)
     }
