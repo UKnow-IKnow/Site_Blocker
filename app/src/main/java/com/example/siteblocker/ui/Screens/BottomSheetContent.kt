@@ -65,7 +65,7 @@ fun BottomSheetContent() {
             }
         }
         Button(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().height(50.dp),
             onClick = { /*TODO*/ }
         ) {
             Text(text = "Save")
