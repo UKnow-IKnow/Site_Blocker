@@ -38,6 +38,12 @@ fun mainScreen() {
         ) {
             cardContent()
         }
+        Text(
+            modifier = Modifier.padding(top = 25.dp),
+            text = "MODE",
+            color = Color.Black,
+            fontSize = MaterialTheme.typography.h3.fontSize
+        )
     }
 }
 

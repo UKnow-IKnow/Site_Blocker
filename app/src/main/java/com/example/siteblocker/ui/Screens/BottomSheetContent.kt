@@ -2,6 +2,7 @@ package com.example.siteblocker.ui.Screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
@@ -27,12 +28,13 @@ fun BottomSheetContent() {
             .background(Color.White)
     ) {
         Text(
-            modifier = Modifier.padding(start = 15.dp),
+            modifier = Modifier.padding(start = 15.dp, top = 8.dp),
             text = "Add Timing",
             color = Color.Black,
-            fontSize = MaterialTheme.typography.h5.fontSize,
+            fontSize = MaterialTheme.typography.h4.fontSize,
             fontWeight = FontWeight.Bold
         )
+        Spacer(modifier = Modifier.padding(8.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -45,11 +47,10 @@ fun BottomSheetContent() {
                     color = Color.Black,
                     fontSize = MaterialTheme.typography.body1.fontSize
                 )
-                Text(
-                    text = "From",
-                    color = Color.Black,
-                    fontSize = MaterialTheme.typography.body1.fontSize
-                )
+                Spacer(modifier = Modifier.padding(3.dp))
+                Box(modifier = Modifier.background(color = Color.White)) {
+                    ShowTimePicker()
+                }
             }
             Column (verticalArrangement = Arrangement.Bottom){
                 Text(
@@ -57,15 +58,17 @@ fun BottomSheetContent() {
                     color = Color.Black,
                     fontSize = MaterialTheme.typography.body1.fontSize
                 )
-                Text(
-                    text = "From",
-                    color = Color.Black,
-                    fontSize = MaterialTheme.typography.body1.fontSize
-                )
+                Spacer(modifier = Modifier.padding(3.dp))
+                Box(modifier = Modifier.background(color = Color.White)) {
+                    ShowTimePicker()
+                }
             }
         }
+        Spacer(modifier = Modifier.padding(8.dp))
         Button(
-            modifier = Modifier.fillMaxWidth().height(50.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(55.dp),
             onClick = { /*TODO*/ }
         ) {
             Text(text = "Save")
